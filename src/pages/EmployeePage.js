@@ -9,6 +9,7 @@ const EmployeePage = () => {
             fetch("https://jsonplaceholder.typicode.com/users")
               .then(resp => resp.json())
               .then((data) => {
+                // setEmployees(data);
                 setEmployees(data);
               });
           } catch (error) {
@@ -19,8 +20,6 @@ const EmployeePage = () => {
     useEffect(() => {
         getEmployeeData();
     }, []);
-
-   
 
     return (
         <div>
