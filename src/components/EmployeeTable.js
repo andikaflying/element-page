@@ -16,7 +16,7 @@ export default function EmployeeTable({
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650, margin: '20px' }}  aria-label="simple table">
+      <Table sx={{ minWidth: 650, margin: '20px', marginTop: '60px' }}  aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>{headerPertama}</TableCell>

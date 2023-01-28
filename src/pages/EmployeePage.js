@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import EmployeeTable from "../components/EmployeeTable";
 
 const EmployeePage = () => {
@@ -40,13 +40,12 @@ const EmployeePage = () => {
                     companyName: item.company.name
                 }
             }));
-            setEmployeeSumaries(temp);
         }
     }, [employees]);
 
     useEffect(() => {
         if (emailList.length > 0) {
-            const emailSortDesc = emailList.sort((a, b) => {
+            setEmailList((prevState) => prevState.sort((a, b) => {
                 const emailA = a.toLowerCase();
                 const emailB = b.toLowerCase();
                 if (emailA < emailB) {
@@ -56,9 +55,9 @@ const EmployeePage = () => {
                   return -1;
                 }
                 return 0;
-            });
-            setEmailList(emailSortDesc);
-            console.log("Sort descending", emailSortDesc);
+            }));
+              
+            console.log("Sort descending", emailList);
         }
     }, [emailList]);
 
@@ -70,8 +69,6 @@ const EmployeePage = () => {
                 headerKedua="Email"
                 headerKetiga="No. Handphone"
             />
-            {/* {emailList.length > 0 && emailList.map((item) => <div>{item}</div>)} */}
-            {employeeSummaries.length > 0 && JSON.stringify(employeeSummaries)}
         </div>
         
     );

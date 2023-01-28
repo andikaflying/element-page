@@ -7,7 +7,6 @@ import One from "../components/One";
 const Main = () => {
   return (
     <div>
-      <Header />
       <Banner />
       <One />
       {/* <EmployeeTable 
